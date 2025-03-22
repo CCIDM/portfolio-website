@@ -37,324 +37,269 @@ format:
 # Overall Agenda
 
 ::: incremental
-1.  Expected Learning outcomes
-2.  Presentation formats (5 min)
-3.  Enhancing Slide Aesthetics and Reveal.js Basics (15 min)
-4.  Presenting slides for maximum engagement with audience (15 min)
-5.  Reveal Themes (Sass) (15 min)
-6.  Q&A (5 min)
+1.  Greetings and Introduction to Presenters 
+2.  Expected Learning Outcomes & Agenda (1 min)
+3.  Quick Demo: Quarto Pub Deployment (15 min)
+4.  Setting Up GitHub Account & Desktop (10 min)
+5.  Building a Portfolio Website on GitHub Pages (15 min)
+6.  Integrating Existing Quarto Projects (10 min)
+7.  Customizing Website Aesthetics with SCSS (15 min)
+8.  Q&A (5 min)
 :::
 
-# 1. Expected Learning outcomes:
+# Expected Learning outcomes:
 
 After taking this workshop, participants should be able to:
 
 ::: {.medium-small .incremental}
-1.  Convert Revealjs presentation slides to other presentation formats (e.g., PPTX or Beamer).
-2.  Build a dynamic and interactive presentation (e.g., incremental lists, speaker notes, multiple columns, and branded elements).
-3.  Maximize engagement with audience using various engagement-enhancing features of Quarto (e.g., navigation menu, overview mode, speaker view, and chalkboard).
-4.  Enhance presentation aesthetics by applying themes, customizing layouts, and incorporating animations or transitions.
-5.  Customize themes using Sass variables to maintain brand consistency and create a distinctive presentation style.
+1.  Build a professional Quarto website to showcase your portfolio, skills, and personal brand online. 
+2.  Integrate existing Quarto projects into your website for cohesive presentation of analyses, reports, interactive visualizations, and dashboards. 
+3.  Customize your website layout and appearance with SCSS and custom themes to enhance visual appeal. 
+4.  Deploy your website online using GitHub Pages for easy accessibility and professional visibility. 
+5.  Create a resume in R using the Vitae package. 
 :::
 
-# 2. Presentation Formats with `Dr. Lange`
+# Quick Demo: Quarto Pub Deployment
 
--   Revealjs
--   PPTX
+## Overview
 
-# 3. Enhancing Slide Aesthetics and Reveal.js Basics with `Dr. Lange`
+In this section we will deploy a basic Quarto website on Quarto Pub.  
+  
+**Key Points:**
 
-## Topics to cover:
+- **Project Setup:** Create a new Quarto project.
 
--   Title slides
--   Slide transitions
--   Slide visibility
--   Fragments
--   Numbering code lines
--   Incremental lists
--   Content overflow
--   Speaker notes
--   Asides & Footnotes
--   Footer & Logo
--   Slides background
+- **YAML Header:** Set up metadata (title, author, date) and social media links.
+  
+## Example YAML Header
 
-[Demonstration to be provided separately]{style="color:blue; font-weight:bold;"}
-
-## Quarto Slide Transition
-
-**none:** No transition (switch instantly) [^1]
-
-[^1]: This is the default
-
-. . .
-
-**fade:** Cross fade
-
-. . .
-
-**slide:** Slide horizontally
-
-. . .
-
-**convex:** Slide at a convex angle
-
-. . .
-
-**concave:** Slide at a concave angle
-
-. . .
-
-**zoom:** Scale the incoming slide so it grows in from the center of the screen.
-
-. . .
-
-## This Slide Zooms in and Fades out {transition="zoom-in fade-out" transition-speed="slow"}
-
-You can also set the transition in the *YAML* header with:
-
-`transition: zoom-in fade-out`
-
-and
-
-`transition-speed: slow`
-
-::: aside
-Note, the *YAML* transition cannot be overwritten by individual slides.
-:::
-
-## Loading the Estonia Dataset {transition="fade-in slide-out"}
-
-We use the `rio` and the `tidyverse` package to load the *Estonia* data set.
-
-The code does not matter too much.
-
-```{r}
-#| code-fold: true
-library(rio)
-library(tidyverse)
-DataEstonia=import("https://econ.lange-analytics.com/RData/Datasets/estonia-passenger-list.csv") 
+```yaml
+---
+title: "My Portfolio"
+author: "Your Name"
+date: "2025-03-22"
+social:
+  - icon: github
+    href: "https://github.com/yourusername"
+  - icon: twitter
+    href: "https://twitter.com/yourusername"
+---
 ```
 
-## Variables in the Dataset
 
-There are several variables in the *Estonia* dataset.
+## Quarto Pub Deployment Walkthrough
 
-Here are the variables:
+**Step-by-Step Demo:**
 
-::: incremental
--   ID
--   First name
--   Last name
--   Country
--   Survival Status
--   Sex
--   Age
--   Category
-:::
+1. **Create a New Quarto Project:**  
+   Use RStudio’s project wizard to start a new Quarto project.
+   
+2. **Edit the YAML Header:**  
+   Add your site title, author info, date, and social links.
+   
+3. **Render Locally:**  
+   Preview your site by rendering the .qmd document.
+   
+4. **Publish to Quarto Pub:**  
+   Click “Publish” in RStudio to deploy your site on Quarto Pub.
 
-## Generating Dataset with Few Variables - First Trial
 
-```{r}
-#| code-line-numbers: "1,|2-3,|4"
-library(tidyverse)
-DataEstoniaNew=DataEstonia |> 
-               select(PassengerId, Sex, Survived)
-head(DataEstoniaNew)
+
+# Setting Up GitHub & GitHub Desktop
+
+## Why GitHub?
+
+- **Version Control:** Track changes and collaborate.
+- **Hosting:** Use GitHub Pages to host your website for free and even connect your own domain.
+
+## Account Setup
+
+1. **Sign Up at GitHub:**  
+   Visit [github.com](https://github.com) to create your account.
+2. **Configure Your Profile:**  
+   Set up your bio, profile picture, and security settings.
+   
+
+## Using GitHub Desktop
+
+**Installation & Workflow:**
+
+1. **Download GitHub Desktop:**  
+   Go to [desktop.github.com](https://desktop.github.com) and install.
+2. **Create a Repository:**  
+   Create a repository named `portfolio-website` or similar.
+3. **Clone the Repository:**  
+   Clone the repository locally and set up directory.
+3. **Commit & Push Changes:**  
+   Use GitHub Desktop’s interface to manage your commits and pushes.
+
+## Command Line Alternative
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/portfolio-website.git
+
+# Navigate to the project folder
+cd portfolio-website
+
+# Stage changes, commit, and push
+git add .
+git commit -m "Initial commit of portfolio website"
+git push origin main
 ```
 
-## Generating Dataset with Few Variables - Better Flow
+## Best Practices for GitHub Commits & Pushes {.small}
 
-```{r }
-#| code-line-numbers: "1,|2-3,|4"
-#| output-location: fragment
-library(tidyverse)
-DataEstoniaNew=DataEstonia |> 
-               select(PassengerId, Sex, Survived)
-head(DataEstoniaNew)
+- **Clear Commit Messages:**  
+  Use descriptive, concise messages in the imperative mood (e.g., "Add feature", "Fix bug").
+
+- **Atomic Commits:**  
+  Commit small, logical changes to keep history clean.
+
+- **Use Branches:**  
+  Develop new features or fixes in separate branches.
+
+- **Review Changes:**  
+  Check diffs before committing to catch errors early.
+
+- **Push Regularly:**  
+  Frequently push to remote repositories to back up your work and ease collaboration.
+
+- **Avoid Sensitive Data:**  
+  Utilize a `.gitignore` file to exclude credentials and temporary files.
+
+# Building a Portfolio Website on GitHub Pages
+
+## Site Structure
+
+A well-organized portfolio website might include the following pages:
+
+- **Home Page:**  
+  An introduction and personal statement.
+
+- **Marketing Analytics:**  
+  A blog-like page showcasing your work in data-driven marketing, including case studies, data visualizations, and performance metrics.
+
+- **Strategic Marketing:**  
+  A dedicated section highlighting your expertise in marketing strategy, brand development, and market positioning.
+
+- **Resume:**  
+  A page featuring your CV, built using Markdown and the Vitae package.
+
+## Example Folder Structure
+
+```
+portfolio-website/
+├── index.qmd                # Home page: Introduction & personal statement
+├── marketing-analytics.qmd  # Marketing Analytics: Data-driven marketing projects & case studies
+├── strategic-marketing.qmd  # Strategic Marketing: Domain expertise & brand strategy insights
+└── resume.qmd               # Resume: Your CV (Markdown/Vitae)
 ```
 
-## Graphing Age and Survived
 
-```{r}
-#| output-location: slide
-#| code-line-numbers: false
-ggplot(DataEstonia, aes(x=Survived, y=Age))+
-   geom_jitter()
+# Configuring Quarto for GitHub Pages
+
+**Deployment Steps:**
+
+1. **Initialize Your Quarto Project:**  
+   Include your key pages (index, projects, resume. etc).
+
+2. **Choose a Built-in Theme:**  
+   Pick a theme that aligns with your brand (e.g., default, flatly).
+
+3. **Push to GitHub:**  
+   Use GitHub Desktop or command line.
+
+4. **Enable GitHub Pages:**  
+   In your repository settings, enable GitHub Pages to serve the site.
+
+
+# Integrating Existing Quarto Projects
+
+## Embedding Interactive Content
+
+You can enhance your portfolio by integrating:
+
+- **Shiny Apps:** Embed interactive apps.
+
+- **HTML Documents:** Showcase outputs or reports.
+
+- **Listings:** Organize multiple projects.
+
+### Example: Embedding a Shiny App
+
+```html
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+  <iframe src="https://yourshinyapp.url" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+</div>
 ```
 
-## Optional Slides Handling
+## Document Listings: The Basics
 
-- Should I show shameless advertising for my Machine Learning book on the next slide???
-    - No!
-- I added `{visibility="hidden"}` after the slide's title.
-- However there is a more flexible way.
+- **Overview:**  
+  Auto-generate page content from a list of Quarto documents—ideal for blogs and navigation.
 
-## Shameless Advertising for Machine Learning Book {visibility="hidden"}
+- **Enabling Listings:**  
+  Add this to your document’s YAML front matter:
+  ```yaml
+  ---
+  listing: 
+  contents: workshops
+  type: grid
+  categories: true
+  sort: 
+    - "title desc"
+  ---
+  ```
 
-Note, the footer link has changed
+- **Key Options:**  
+  - **contents:** Specify which files to include (e.g., `contents: posts`)
+  - **sort:** Order items (e.g., `sort: "date desc"`)
+  - **type:** Choose a layout: **default**, **table**, or **grid**
 
-::: footer
-<a href="https://ai.lange-analytics.com/htmlbook" target="_blank">Free Version Link</a>
-:::
+# Customizing Website Aesthetics with SCSS
 
-## Your Questions Please
+## Creating a Custom SCSS File
 
-# 4. Presenting slides for maximum engagement with audience with `Jarrod`
+1. **Add a File:**  
+   Create `styles.scss` in your project.
+2. **Override Theme Defaults:**  
+   Customize fonts, colors, and spacing.
 
-## Topics to Cover:
+### Sample SCSS Code
 
--   Navigation menu
--   Overview mode
--   Slide zoom
--   Speaker view
--   Print to PDF
--   Chalkboard
--   Multiplex
-
-[Demonstration to be provided separately]{style="color:blue; font-weight:bold;"}
-
-::: notes
-Slide zoom is opt on mac, alt on windows
-:::
-
-# 5. Reveal Themes (Scss) with `Jarrod`
-
-## Topics to Cover:
-
--   Choosing and using themes
--   Customizing themes
--   Creating themes
--   Sass Variables / CSS
-
-## Choosing and Using Themes
-
-RevealJS offers a variety of built-in themes. To choose or use a theme:
-
-::: incremental
-1.  **Select a Theme:** You can either choose a built-in theme or provide your own via a custom SCSS file. <https://quarto.org/docs/presentations/revealjs/themes.html>
-2.  **Link the Theme:** In your YAML header, set the `theme` option to your SCSS file. For example:
-:::
-
-. . .
-
-``` yaml
-format:
-  revealjs:
-    theme: [default, theme.scss]
-```
-
-This tells RevealJS to use your custom styling for the presentation.
-
-## Customizing Themes
-
-::: callout-tip
--   Customization allows your slides to reflect your branding.
--   With SCSS, you can easily override default styles.
--   For example, to change the style of your headings and links, you might use:
-:::
-
-. . .
-
-``` scss
-.reveal h1, .reveal h2, .reveal h3 {
-  font-family: $font-primary;
-  font-weight: bold;
+```scss
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f7f7f7;
 }
 
-.reveal a {
-  color: $citrus !important;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-```
-
--   Experiment with these rules to adjust colors, fonts, and layout elements to your liking. <https://quarto.org/docs/presentations/revealjs/themes.html>
-
-## Creating Themes
-
-::: incremental
--   Creating your own theme involves:
-    1.  **Starting from Scratch:** Create a new SCSS file.
-    2.  **Defining Variables:** Set up your color palette, typography, and other style constants.
-    3.  **Writing Rules:** Develop CSS rules targeting RevealJS slide elements.
-    4.  **Linking in Quarto:** Reference your SCSS file in the YAML header as shown earlier.
--   This process gives you full control over your presentation’s appearance.
-:::
-
-## Reveal Themes (SCSS) {style="height:1000px;"}
-
--   `RevealJS` allows us to use SCSS for more powerful theming. In this section, we'll look at how our SCSS file defines styles for our presentation.
--   **Key concepts:**
-    -   **SCSS Variables:** Reusable values for colors, fonts, etc.
-    -   **SCSS Rules:** Custom styles for headings, text, code blocks, and more.
-    -   **Integration:** How our SCSS theme overrides default RevealJS styles.
-
-. . .
-
--   Below is a snippet from our `theme.scss` file (for demonstration):
-
-``` scss
-/* SCSS Variables for Cal Poly Pomona Branding */
-$cpp-green: #00693D;
-$cpp-gold:  #FFB81C;
-
-// Typography
-$font-primary: Arial, sans-serif;
-$font-body: Arial, sans-serif;
-
-.reveal {
-  font-family: $font-body;
-  color: $black;
-
-  h1 {
-    font-size: 2.5em;
-    color: $cpp-green !important;
-  }
-  // ...
+h1, h2, h3 {
+  color: #333;
 }
 ```
 
-## Sass Variables / CSS
 
--   Sass variables are at the core of our theme’s flexibility. For instance:
-    -   **\$cpp-green:** Used for primary headings and controls.
-    -   **\$cpp-gold:** Defines secondary highlights and accents.
-    -   **\$teal, \$citrus, etc.:** Additional colors for links, progress bars, and code blocks.
+# Audience Customization Ideas
 
-. . .
+**We Want Your Input!**
 
--   Changing a variable’s value in one place updates your entire theme—making maintenance and updates very efficient.
+- What parts of the portfolio website would you like to see customized?
+- Which design elements (e.g., colors, fonts, layouts) interest you most?
+- Are there any additional features you’d like to explore (e.g., interactive widgets, advanced listings, animations)?
 
-## Demo: Applying the Theme
+Share your ideas, and let’s discuss how to bring your vision to life!
 
--   [Let's see the custom theme in action!]{.fragment .fade-in-then-semi-out}
--   [Notice how the defined styles (fonts, colors, code block designs) immediately change the look of your slides.]{.fragment .fade-in-then-semi-out}
-
-. . .
-
-|      **Live Experiment:**
-
-. . .
-
--   Try modifying a variable (e.g., `$cpp-green`) in your `theme.scss` file, then refresh the presentation to observe the changes.
-
-## Conclusion
-
-- Today we covered:
-    -   **Reveal Themes (SCSS):** Understanding how SCSS integrates with RevealJS.
-    -   **Choosing & Using Themes:** Linking and selecting themes via the YAML header.
-    -   **Customizing Themes:** Overriding default styles with your own SCSS.
-    -   **Creating Themes:** Building a custom theme from scratch.
-    -   **Sass Variables / CSS:** Using variables for efficient, consistent styling.
-- Feel free to experiment with the code and make the theme your own!
-
-## Thank You!
 
 # Q&A
 
--   Sample presentation template for the Student Project
-    -   Github Repo: <https://jmjung.quarto.pub/case31-presentatoin/>
-    -   Presentation Slides: <https://jmjung.quarto.pub/case31-presentatoin/>
+- Open the floor for any questions.
+- Address common issues (YAML syntax errors, GitHub push problems, SCSS overrides).
+- Share additional resources:
+  - [Quarto Documentation](https://quarto.org)
+  - [GitHub Pages Help](https://docs.github.com/en/pages)
+  - [Vitae Package Documentation](https://vitae.rbind.io)
 
-**Thank you for joining this Quarto Workshop!**
+# Thank You!
+
+Stay connected and keep building your portfolio.  
