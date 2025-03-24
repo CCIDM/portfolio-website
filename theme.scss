@@ -111,8 +111,11 @@ $font-body: Arial, sans-serif;
     border: 2px solid $avocado;
   }
 
-  /* Bulleted lists in slides */
-  .slides section ul {
+/* Bulleted and numbered lists in slides */
+  .slides section { 
+  
+    /* First-level unordered list */
+    ul {
     list-style-type: disc;
     font-size: 2.5rem;
     margin-left: 1.5em;
@@ -134,6 +137,45 @@ $font-body: Arial, sans-serif;
       }
     }
   }
+  
+  /* First-level ordered list */
+  ol {
+    list-style-type: decimal;
+    font-size: 2.5rem;
+    margin-left: 1.5em;
+    color: $black;  // Color for first-level numbers and text
+
+    /* Second-level ordered list */
+    ol {
+      list-style-type: lower-alpha;  // a, b, c...
+      font-size: 2rem;
+      margin-left: 1.6em;
+      color: $black;  // Color for second-level numbers and text
+
+      /* Third-level ordered list */
+      ol {
+        list-style-type: lower-roman;  // i, ii, iii...
+        font-size: 1.5rem;
+        margin-left: 1.7em;
+        color: $black;  // Color for third-level numbers and text
+      }
+    }
+  }
+
+  /* Mixed lists (ul inside ol and vice versa) */
+  ol ul, ul ol {
+    font-size: 2rem;  
+    margin-left: 1.6em;  
+    color: $black;  
+
+    /* Second-level mixed lists */
+    ul, ol {
+      font-size: 1.75rem;
+      margin-left: 1.7em;
+      color: $black;
+    }
+  }
+}
 
   /* Highlight class */
   .highlight {

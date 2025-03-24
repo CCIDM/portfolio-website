@@ -12,6 +12,8 @@ format:
     slide-number: true
     toc: true
     toc-depth: 1
+    code-link: true
+    link-external-newwindow: true
     #chalkboard: true #cannot use with self-contained
     embed-resources: true
     multiplex: true
@@ -103,14 +105,14 @@ On the menu, go to
 ---
 title: "John Doe"
 about:
-  template: trestles
+  template: jolla
   image: drjung-small.PNG
   links: 
     - icon: github
       text: Github
       href: https://github.com/youracount/
-    - icon: twitter-x
-      text: X
+    - icon: twitter
+      text: twitter
       href: https://x.com/youraccount
 ---
 ```
@@ -351,16 +353,16 @@ output:
 **Deployment Steps:**
 
 1. **Initialize Your Quarto Project:**  
-   Include your key pages (index, projects, resume. etc).
+    - Include your key pages (index, projects, resume. etc).
 
 2. **Choose a Built-in Theme:**  
-   Pick a theme that aligns with your brand (e.g., default, flatly).
+    - Pick a theme that aligns with your brand (e.g., default, flatly).
 
 3. **Push to GitHub:**  
-   Use GitHub Desktop or command line.
+    - Use GitHub Desktop or command line.
 
 4. **Enable GitHub Pages:**  
-   In your repository settings, enable GitHub Pages to serve the site.
+    - In your repository settings, enable GitHub Pages to serve the site.
 
 
 # Integrating Existing Quarto Projects
