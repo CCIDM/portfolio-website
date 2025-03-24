@@ -1422,6 +1422,35 @@ A page featuring your CV, built using Markdown and the Vitae package.</p></li>
 ├── marketing-analytics.qmd  # Marketing Analytics: Data-driven marketing projects &amp; case studies
 ├── strategic-marketing.qmd  # Strategic Marketing: Domain expertise &amp; brand strategy insights
 └── resume.qmd               # Resume: Your CV (Markdown/Vitae)</code></pre>
+</section>
+<section id="creating-a-resume-with-the-vitae-package" class="slide level2">
+<h2>Creating a Resume with the Vitae Package</h2>
+<p><strong>Overview:</strong> - <strong>Vitae</strong> is an R package for generating professional resumes and CVs using R Markdown and Quarto. - It offers several customizable templates to showcase your skills and experience.</p>
+<p><strong>Steps to Get Started:</strong> 1. <strong>Install Vitae:</strong><br>
+Run the following in R: <code>r    install.packages(&quot;vitae&quot;)</code></p>
+<ol start="2" type="1">
+<li><p><strong>Choose a Template:</strong><br>
+Vitae includes templates like <code>awesome-cv</code> and <code>moderncv</code>.</p></li>
+<li><p><strong>Set Up Your Quarto Document:</strong><br>
+Use a YAML header to specify the Vitae template. For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Jarrod</span></span>
+<span id="cb4-3"><a href></a><span class="fu">surname</span><span class="kw">:</span><span class="at"> Griffin</span></span>
+<span id="cb4-4"><a href></a><span class="fu">position</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student - Marketing Analytics&quot;</span></span>
+<span id="cb4-5"><a href></a><span class="fu">www</span><span class="kw">:</span><span class="at"> jarrodgriffin.com</span></span>
+<span id="cb4-6"><a href></a><span class="fu">email</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;jarrod@jarrodgriffin.com&quot;</span></span>
+<span id="cb4-7"><a href></a><span class="fu">github</span><span class="kw">:</span><span class="at"> jsgriffin96</span></span>
+<span id="cb4-8"><a href></a><span class="fu">linkedin</span><span class="kw">:</span><span class="at"> jarrod-griffin</span></span>
+<span id="cb4-9"><a href></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r format(Sys.time(), &#39;%B %Y&#39;)`&quot;</span></span>
+<span id="cb4-10"><a href></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-11"><a href></a><span class="at">  vitae:</span><span class="fu">:latexcv</span><span class="kw">:</span></span>
+<span id="cb4-12"><a href></a><span class="at"> </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> classic</span></span>
+<span id="cb4-13"><a href></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Customize Your Content:</strong><br>
+Add sections for education, work experience, skills, etc., using Markdown.</p></li>
+<li><p><strong>Render Your Resume:</strong><br>
+Render the document to generate a polished resume.</p></li>
+</ol>
 </section></section>
 <section id="configuring-quarto-for-github-pages" class="title-slide slide level1 center">
 <h1>Configuring Quarto for GitHub Pages</h1>
@@ -1452,9 +1481,9 @@ In your repository settings, enable GitHub Pages to serve the site.</p></li>
 <li><p><strong>Listings:</strong> Organize multiple projects.</p></li>
 </ul>
 <h3 id="example-embedding-a-shiny-app">Example: Embedding a Shiny App</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;position: relative; width: 100%; height: 0; padding-bottom: 56.25%;&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb4-2"><a href></a>  <span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://yourshinyapp.url&quot;</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
-<span id="cb4-3"><a href></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;position: relative; width: 100%; height: 0; padding-bottom: 56.25%;&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href></a>  <span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://yourshinyapp.url&quot;</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;</span><span class="ot"> allowfullscreen</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="document-listings-the-basics" class="slide level2">
 <h2>Document Listings: The Basics</h2>
@@ -1463,14 +1492,14 @@ In your repository settings, enable GitHub Pages to serve the site.</p></li>
 Auto-generate page content from a list of Quarto documents—ideal for blogs and navigation.</p></li>
 <li><p><strong>Enabling Listings:</strong><br>
 Add this to your document’s YAML front matter:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href></a><span class="pp">---</span></span>
-<span id="cb5-2"><a href></a><span class="fu">listing</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-3"><a href></a><span class="fu">contents</span><span class="kw">:</span><span class="at"> workshops</span></span>
-<span id="cb5-4"><a href></a><span class="fu">type</span><span class="kw">:</span><span class="at"> grid</span></span>
-<span id="cb5-5"><a href></a><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-6"><a href></a><span class="fu">sort</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-7"><a href></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;title desc&quot;</span></span>
-<span id="cb5-8"><a href></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href></a><span class="fu">listing</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-3"><a href></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> workshops</span></span>
+<span id="cb6-4"><a href></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> grid</span></span>
+<span id="cb6-5"><a href></a><span class="at">  </span><span class="fu">categories</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-6"><a href></a><span class="at">  </span><span class="fu">sort</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-7"><a href></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;title desc&quot;</span></span>
+<span id="cb6-8"><a href></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Key Options:</strong></p>
 <ul>
 <li><strong>contents:</strong> Specify which files to include (e.g., <code>contents: posts</code>)</li>
@@ -1493,14 +1522,22 @@ Create <code>styles.scss</code> in your project.</li>
 Customize fonts, colors, and spacing.</li>
 </ol>
 <h3 id="sample-scss-code">Sample SCSS Code</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource scss number-lines code-with-copy"><code class="sourceCode scss"><span id="cb6-1"><a href></a>body {</span>
-<span id="cb6-2"><a href></a>  <span class="kw">font-family</span>: <span class="st">&quot;Helvetica Neue&quot;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
-<span id="cb6-3"><a href></a>  <span class="kw">background-color</span>: <span class="cn">#f7f7f7</span><span class="op">;</span></span>
-<span id="cb6-4"><a href></a>}</span>
-<span id="cb6-5"><a href></a></span>
-<span id="cb6-6"><a href></a>h1<span class="op">,</span> h2<span class="op">,</span> h3 {</span>
-<span id="cb6-7"><a href></a>  <span class="kw">color</span>: <span class="cn">#333</span><span class="op">;</span></span>
-<span id="cb6-8"><a href></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource scss number-lines code-with-copy"><code class="sourceCode scss"><span id="cb7-1"><a href></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb7-2"><a href></a></span>
+<span id="cb7-3"><a href></a><span class="co">/* Global Body Styles */</span></span>
+<span id="cb7-4"><a href></a>body {</span>
+<span id="cb7-5"><a href></a>  <span class="kw">font-family</span>: <span class="va">$font-body</span><span class="op">;</span></span>
+<span id="cb7-6"><a href></a>  <span class="kw">color</span>: <span class="va">$black</span><span class="op">;</span></span>
+<span id="cb7-7"><a href></a>  <span class="kw">background-color</span>: <span class="va">$eggshell</span><span class="op">;</span></span>
+<span id="cb7-8"><a href></a>  <span class="kw">margin</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-9"><a href></a>  <span class="kw">padding</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-10"><a href></a>}</span>
+<span id="cb7-11"><a href></a></span>
+<span id="cb7-12"><a href></a><span class="co">/* Headings */</span></span>
+<span id="cb7-13"><a href></a>h1<span class="op">,</span> h2<span class="op">,</span> h3<span class="op">,</span> h4<span class="op">,</span> h5<span class="op">,</span> h6 {</span>
+<span id="cb7-14"><a href></a>  <span class="kw">font-family</span>: <span class="va">$font-primary</span><span class="op">;</span></span>
+<span id="cb7-15"><a href></a>  <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span></span>
+<span id="cb7-16"><a href></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section id="audience-customization-ideas" class="title-slide slide level1 center">
 <h1>Audience Customization Ideas</h1>
@@ -1508,7 +1545,7 @@ Customize fonts, colors, and spacing.</li>
 <ul>
 <li>What parts of the portfolio website would you like to see customized?</li>
 <li>Which design elements (e.g., colors, fonts, layouts) interest you most?</li>
-<li>Are there any additional features you’d like to explore (e.g., interactive widgets, advanced listings, animations)?</li>
+<li>Are there any additional features you’d like to explore?</li>
 </ul>
 <p>Share your ideas, and let’s discuss how to bring your vision to life!</p>
 </section>

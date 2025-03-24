@@ -196,6 +196,45 @@ portfolio-website/
 └── resume.qmd               # Resume: Your CV (Markdown/Vitae)
 ```
 
+## Creating a Resume with the Vitae Package
+
+**Overview:**
+- **Vitae** is an R package for generating professional resumes and CVs using R Markdown and Quarto.
+- It offers several customizable templates to showcase your skills and experience.
+
+**Steps to Get Started:**
+1. **Install Vitae:**  
+   Run the following in R:
+   ```r
+   install.packages("vitae")
+   ```
+
+2. **Choose a Template:**  
+   Vitae includes templates like `awesome-cv` and `moderncv`.
+
+3. **Set Up Your Quarto Document:**  
+   Use a YAML header to specify the Vitae template. For example:
+   ```yaml
+   ---
+name: Jarrod
+surname: Griffin
+position: "Student - Marketing Analytics"
+www: jarrodgriffin.com
+email: "jarrod@jarrodgriffin.com"
+github: jsgriffin96
+linkedin: jarrod-griffin
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::latexcv:
+    theme: classic
+   ---
+   ```
+
+4. **Customize Your Content:**  
+   Add sections for education, work experience, skills, etc., using Markdown.
+
+5. **Render Your Resume:**  
+   Render the document to generate a polished resume.
 
 # Configuring Quarto for GitHub Pages
 
@@ -244,11 +283,11 @@ You can enhance your portfolio by integrating:
   ```yaml
   ---
   listing: 
-  contents: workshops
-  type: grid
-  categories: true
-  sort: 
-    - "title desc"
+    contents: workshops
+    type: grid
+    categories: true
+    sort: 
+      - "title desc"
   ---
   ```
 
@@ -269,13 +308,21 @@ You can enhance your portfolio by integrating:
 ### Sample SCSS Code
 
 ```scss
+/*-- scss:rules --*/
+
+/* Global Body Styles */
 body {
-  font-family: "Helvetica Neue", sans-serif;
-  background-color: #f7f7f7;
+  font-family: $font-body;
+  color: $black;
+  background-color: $eggshell;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3 {
-  color: #333;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: bold;
 }
 ```
 
@@ -286,7 +333,7 @@ h1, h2, h3 {
 
 - What parts of the portfolio website would you like to see customized?
 - Which design elements (e.g., colors, fonts, layouts) interest you most?
-- Are there any additional features you’d like to explore (e.g., interactive widgets, advanced listings, animations)?
+- Are there any additional features you’d like to explore?
 
 Share your ideas, and let’s discuss how to bring your vision to life!
 
