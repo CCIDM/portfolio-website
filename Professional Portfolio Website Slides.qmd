@@ -1,5 +1,5 @@
 ---
-title: "Quarto Workshop Series: Building a Free Professional Portfolio Website"
+title: "Quarto Workshop Series: <span style='color: #b52b4c;'><br>Building a Free Professional Portfolio Website</span>"
 author: "Center for Customer Insights and Digital Marketing"
 institute: "Cal Poly Pomona"
 date: "03/25/2025"
@@ -8,7 +8,7 @@ format:
   revealjs:
     center: false
     logo: "logos/ccidm-cpp logo.png"
-    theme: theme.scss
+    theme: [default, theme.scss]
     slide-number: true
     toc: true
     toc-depth: 1
@@ -20,7 +20,10 @@ format:
     margin: 0.1
     minScale: 0.2
     maxScale: 2.0
+execute: 
+  freeze: auto
 ---
+
 
 # Greetings and Introduction of the Team
 
@@ -38,14 +41,16 @@ format:
 
 ::: incremental
 1.  Greetings and Introduction to Presenters 
-2.  Expected Learning Outcomes & Agenda (1 min)
-3.  Quick Demo: Quarto Pub Deployment (15 min)
+2.  Expected Learning Outcomes & Agenda
+3.  Quick Demo: Deployment to `quarto-pub` (15 min)
 4.  Setting Up GitHub Account & Desktop (10 min)
-5.  Building a Portfolio Website on GitHub Pages (15 min)
+5.  Building a Portfolio Website on `github-pages` (15 min)
 6.  Integrating Existing Quarto Projects (10 min)
 7.  Customizing Website Aesthetics with SCSS (15 min)
 8.  Q&A (5 min)
 :::
+
+
 
 # Expected Learning outcomes:
 
@@ -59,11 +64,111 @@ After taking this workshop, participants should be able to:
 5.  Create a resume in R using the Vitae package. 
 :::
 
-# Quick Demo: Quarto Pub Deployment
+# Quick Demo: Deployment to `quarto-pub`
 
-## Overview
+## Demo Website
 
-In this section we will deploy a basic Quarto website on Quarto Pub.  
+-   <https://jmjung.quarto.pub/welcome-to-farm-store---dmc/>
+-   <https://jmjung.quarto.pub/website-quarto-pub/>
+
+
+## Quarto-Pub Deployment Walkthrough 
+
+**Step-by-Step Demo:**
+
+. . .
+
+### 1. Create a New Directory:
+
+On the menu, go to
+
+- **File** > 
+    - **New Project** > 
+        - **Quarto Website**:
+            - select directory
+            - add `subdirectory` name
+- A website **`template`** will be created with the following files:
+    - index.qmd
+    - about.qmd
+    - _quarto.yml
+    - styles.css
+
+---
+
+### 2. Edit the `index.qmd` file
+
+```yml
+---
+title: "John Doe"
+about:
+  template: trestles
+  image: drjung-small.PNG
+  links: 
+    - icon: github
+      text: Github
+      href: https://github.com/youracount/
+    - icon: twitter-x
+      text: X
+      href: https://x.com/youraccount
+---
+```
+
+---
+
+### 3. Edit the `_quarto.yml` file: 
+   
+```yml
+   project:
+  type: website
+
+website:
+  title: "subdirectory Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: project.qmd
+        text: Projects
+      - href: about.qmd
+        text: Blogs
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+editor: visual
+execute: 
+  freeze: auto
+```
+
+---
+
+
+### 4. Render Locally:
+
+
+-   Preview your site by going to 
+    - `build` > `Render Website`
+
+
+
+### 5. Publish to `quarto-pub` 
+
+-   Under `Terminal` tab, type the following
+
+   ```terminal
+   quarto publish quarto-pub
+   ```
+-   Follow the instructions on the `Terminal`
+
+
+## Overview {visibility="hidden"}
+
+In this section we will deploy a basic Quarto website on `quarto-Pub`.  
   
 **Key Points:**
 
@@ -71,7 +176,7 @@ In this section we will deploy a basic Quarto website on Quarto Pub.
 
 - **YAML Header:** Set up metadata (title, author, date) and social media links.
   
-## Example YAML Header
+## Example YAML Header {visibility="hidden"}
 
 ```yaml
 ---
@@ -86,13 +191,12 @@ social:
 ---
 ```
 
-
-## Quarto Pub Deployment Walkthrough
+## Quarto Pub Deployment Walkthrough {visibility="hidden"}
 
 **Step-by-Step Demo:**
 
-1. **Create a New Quarto Project:**  
-   Use RStudio’s project wizard to start a new Quarto project.
+1. **Create a New Directory:**  
+   New Project > Quarto Website
    
 2. **Edit the YAML Header:**  
    Add your site title, author info, date, and social links.
@@ -101,7 +205,7 @@ social:
    Preview your site by rendering the .qmd document.
    
 4. **Publish to Quarto Pub:**  
-   Click “Publish” in RStudio to deploy your site on Quarto Pub.
+   Click "Publish" in RStudio to deploy your site on Quarto Pub.
 
 
 
@@ -148,25 +252,28 @@ git commit -m "Initial commit of portfolio website"
 git push origin main
 ```
 
-## Best Practices for GitHub Commits & Pushes {.small}
+## Best Practices for GitHub Commits & Pushes{.medium-small}
 
+:::{.large-small}
 - **Clear Commit Messages:**  
-  Use descriptive, concise messages in the imperative mood (e.g., "Add feature", "Fix bug").
+    - Use descriptive, concise messages in the imperative mood (e.g., "Add feature", "Fix bug").
 
-- **Atomic Commits:**  
-  Commit small, logical changes to keep history clean.
+- **Atomic Commits:** 
+    - Commit small, logical changes to keep history clean.
 
 - **Use Branches:**  
-  Develop new features or fixes in separate branches.
+    - Develop new features or fixes in separate branches.
 
 - **Review Changes:**  
-  Check diffs before committing to catch errors early.
+    - Check diffs before committing to catch errors early.
 
 - **Push Regularly:**  
-  Frequently push to remote repositories to back up your work and ease collaboration.
+    - Frequently push to remote repositories to back up your work and ease collaboration.
 
 - **Avoid Sensitive Data:**  
-  Utilize a `.gitignore` file to exclude credentials and temporary files.
+    - Utilize a `.gitignore` file to exclude credentials and temporary files.
+    
+:::
 
 # Building a Portfolio Website on GitHub Pages
 
