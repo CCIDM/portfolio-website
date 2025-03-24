@@ -20,6 +20,7 @@ format:
     margin: 0.1
     minScale: 0.2
     maxScale: 2.0
+    scrollable: true
 execute: 
   freeze: auto
 ---
@@ -33,7 +34,8 @@ execute:
 # Announcement
 
 -   The workshop will be Recorded and will be available later
--   Workshop materials available at <https://github.com/CCIDM/portfolio-website>.
+-   Quarto Website and Resume template available at <https://github.com/CCIDM/portfolio-website-template>
+-   Workshop slide materials available at <https://github.com/CCIDM/portfolio-website>.
 -   Live slides available at <https://ccidm.github.io/portfolio-website>
 -   Questions
 
@@ -310,6 +312,7 @@ portfolio-website/
 - It offers several customizable templates to showcase your skills and experience.
 
 **Steps to Get Started:**
+
 1. **Install Vitae:**  
    Run the following in R:
    ```r
