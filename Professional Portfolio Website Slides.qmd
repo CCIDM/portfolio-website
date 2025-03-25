@@ -307,10 +307,12 @@ portfolio-website/
 └── resume.qmd               # Resume: Your CV (Markdown/Vitae)
 ```
 
-## Creating a Resume with the Vitae Package
+# Creating a Resume with the Vitae Package
 
 **Overview:**
+
 - **Vitae** is an R package for generating professional resumes and CVs using R Markdown and Quarto.
+
 - It offers several customizable templates to showcase your skills and experience.
 
 **Steps to Get Started:**
@@ -348,21 +350,7 @@ output:
 5. **Render Your Resume:**  
    Render the document to generate a polished resume.
 
-# Configuring Quarto for GitHub Pages
 
-**Deployment Steps:**
-
-1. **Initialize Your Quarto Project:**  
-    - Include your key pages (index, projects, resume. etc).
-
-2. **Choose a Built-in Theme:**  
-    - Pick a theme that aligns with your brand (e.g., default, flatly).
-
-3. **Push to GitHub:**  
-    - Use GitHub Desktop or command line.
-
-4. **Enable GitHub Pages:**  
-    - In your repository settings, enable GitHub Pages to serve the site.
 
 
 # Integrating Existing Quarto Projects
@@ -407,6 +395,23 @@ You can enhance your portfolio by integrating:
   - **contents:** Specify which files to include (e.g., `contents: posts`)
   - **sort:** Order items (e.g., `sort: "date desc"`)
   - **type:** Choose a layout: **default**, **table**, or **grid**
+
+# Configuring Your HTML for GitHub Pages
+
+**Deployment Steps:**
+
+1. **Render Your Quarto Project:**  
+    - Include your key pages (index, projects, resume. etc).
+
+2. **Move HTML into repo folder**  
+    - Move HTML output from rendering Quarto into repo folder.
+
+3. **Push to GitHub:**  
+    - Use GitHub Desktop or command line.
+
+4. **Enable GitHub Pages:**  
+    - In your repository settings, enable GitHub Pages to serve the site.
+
 
 # Customizing Website Aesthetics with SCSS
 
