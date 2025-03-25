@@ -334,7 +334,7 @@ portfolio-website/
 └── resume.qmd               # Resume: Your CV (Markdown/Vitae)
 ```
 
-# Creating a Resume with the Vitae Package
+# Creating a Resume with the Vitae Package {.scrollable}
 
 **Overview:**
 
