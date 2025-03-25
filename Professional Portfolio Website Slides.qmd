@@ -37,7 +37,7 @@ execute:
 
 -   The workshop will be Recorded and will be available later
 -   Quarto Website and Resume template available at <https://github.com/CCIDM/portfolio-website-template>
--   Workshop slide materials available at <https://github.com/CCIDM/portfolio-website>.
+-   Workshop slide materials available at <https://github.com/CCIDM/portfolio-website>
 -   Live slides available at <https://ccidm.github.io/portfolio-website>
 -   Questions
 
@@ -49,7 +49,7 @@ execute:
 3.  Quick Demo: Deployment to `quarto-pub` (15 min)
 4.  Setting Up GitHub Account & Desktop (10 min)
 5.  Building a Portfolio Website on `github-pages` (15 min)
-6.  Integrating Existing Quarto Projects (10 min)
+6.  Integrating Existing Quarto Projects into the website (10 min)
 7.  Customizing Website Aesthetics with SCSS (15 min)
 8.  Q&A (5 min)
 :::
@@ -72,8 +72,13 @@ After taking this workshop, participants should be able to:
 
 ## Demo Website
 
--   <https://jmjung.quarto.pub/welcome-to-farm-store---dmc/>
--   <https://jmjung.quarto.pub/website-quarto-pub/>
+- Farm Store and Penguins
+    -  `quarto-pub`:  <https://jmjung.quarto.pub/welcome-to-farm-store---dmc/>
+    -  `github-pages`: <https://jaejungca.github.io/dmc/>
+    -  `github-repo`: <https://github.com/jaejungca/dmc>
+- **Today's Demo website**:
+    -  `quarto-pub`: <https://jmjung.quarto.pub/website-quarto-pub/>
+        
 
 
 ## Quarto-Pub Deployment Walkthrough 
@@ -90,7 +95,8 @@ On the menu, go to
     - **New Project** > 
         - **Quarto Website**:
             - select directory
-            - add `subdirectory` name
+            - add subdirectory name: `website-quarto-pub`
+
 - A website **`template`** will be created with the following files:
     - index.qmd
     - about.qmd
@@ -100,6 +106,8 @@ On the menu, go to
 ---
 
 ### 2. Edit the `index.qmd` file
+
+1. YAML Header
 
 ```yml
 ---
@@ -116,10 +124,27 @@ about:
       href: https://x.com/youraccount
 ---
 ```
+2. Add something about you
+    - headshot image file
+    - short bio
+    - Highlights
+    - social media links
 
 ---
 
-### 3. Edit the `_quarto.yml` file: 
+### 3. Create a new quarto file for a `project`
+
+
+- We will use the `Farm Store and Penguins` project qmd file 
+    - Copy codes from the project's `index.qmd` file and paste it into the new file called, **`project.qmd`**
+    - Copy and paste support files for the project to the `website-quarto-pub` folder.
+        - four the graphics file
+        - reference.bib
+
+
+---
+
+### 4. Organize your website structure with the `_quarto.yml` file: 
    
 ```yml
    project:
@@ -151,16 +176,16 @@ execute:
 
 ---
 
-
-### 4. Render Locally:
+::: {.fragment .fade-in-then-semi-out}
+### 5. Render Locally:
 
 
 -   Preview your site by going to 
     - `build` > `Render Website`
+:::
 
-
-
-### 5. Publish to `quarto-pub` 
+::: {.fragment .fade-in-then-semi-out}
+### 6. Publish to `quarto-pub` 
 
 -   Under `Terminal` tab, type the following
 
@@ -168,7 +193,7 @@ execute:
    quarto publish quarto-pub
    ```
 -   Follow the instructions on the `Terminal`
-
+:::
 
 ## Overview {visibility="hidden"}
 
