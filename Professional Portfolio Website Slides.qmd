@@ -353,6 +353,8 @@ portfolio-website/
 2. **Choose a Template:**  
    Vitae includes templates like `awesome-cv` and `moderncv`.
 
+---
+
 3. **Set Up Your Quarto Document:**  
    Use a YAML header to specify the Vitae template. For example:
    ```yaml
