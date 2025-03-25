@@ -251,6 +251,8 @@ social:
    Visit [github.com](https://github.com) to create your account.
 2. **Configure Your Profile:**  
    Set up your bio, profile picture, and security settings.
+3. **Create a Repository:**  
+   Create a repository named `portfolio-website` or similar.
    
 
 ## Using GitHub Desktop
@@ -259,10 +261,10 @@ social:
 
 1. **Download GitHub Desktop:**  
    Go to [desktop.github.com](https://desktop.github.com) and install.
-2. **Create a Repository:**  
-   Create a repository named `portfolio-website` or similar.
-3. **Clone the Repository:**  
+2. **Clone the Repository:**  
    Clone the repository locally and set up directory.
+3. **Move Files into Repo Folder:**  
+   Move the existing .qmd or .html files into the repo folder.
 3. **Commit & Push Changes:**  
    Use GitHub Desktop’s interface to manage your commits and pushes.
 
